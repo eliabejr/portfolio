@@ -6,8 +6,17 @@
   "dependencies": {
     "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.46",
+    "gatsby-plugin-google-fonts": "^0.0.4",
+    "gatsby-plugin-manifest": "^1.0.27",
+    "gatsby-plugin-nprogress": "^1.0.14",
+    "gatsby-plugin-offline": "^1.0.18",
     "gatsby-plugin-react-helmet": "^2.0.11",
+    "gatsby-plugin-styled-components": "^2.0.11",
+    "particles.js": "^2.0.0",
     "react-helmet": "^5.2.0",
+    "react-icons": "^2.2.7",
+    "react-lifecycle-hoc": "^3.1.0",
+    "recompose": "^0.27.1",
     "styled-components": "^3.4.6"
   },
   "keywords": [
@@ -16,12 +25,24 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
+    "lint:staged": "lint-staged",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.13.7"
+    "babel-plugin-styled-components": "^1.5.1",
+    "lint-staged": "^7.2.0",
+    "patch-package": "^5.1.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.12.0"
+  },
+  "pre-commit": "lint:staged",
+  "lint-staged": {
+    "*.{js,json}": [
+      "prettier --write --single-quote true --trailing-comma all --print-width 120 --semi false",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
