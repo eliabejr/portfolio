@@ -20,6 +20,9 @@ const ButtonWrapper = styled.button`
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  position: relative;
+  z-index: 1;
+
   a {
     color: inherit;
     font-size: 18px;
@@ -27,7 +30,7 @@ const ButtonWrapper = styled.button`
   }
   &:hover {
     background: transparent;
-    border: 2px solid ${props => (props.raised ? 'transparent' : 'currentColor')};
+    border: 1px solid ${props => (props.raised ? props.theme : 'transparent')};
     color: ${props => (props.raised ? '#fff' : props.theme || '#14646d')};
   }
 `
