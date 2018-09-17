@@ -45,9 +45,7 @@ ButtonWrapper.defaultProps = {
 
 const Button = ({ link, theme, raised, alignSelf, icon, children }) => (
   <ButtonWrapper alignSelf={alignSelf} theme={theme} raised={raised}>
-    <Icon>
-      {icon ? icon : null}
-    </Icon>
+    {icon ? <Icon>{icon}</Icon> : null}
     {link ? <Link to={link}>{children}</Link> : children}
   </ButtonWrapper>
 )

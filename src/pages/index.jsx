@@ -9,6 +9,7 @@ import Title from '../components/Title'
 import Text from '../components/Text'
 import Subtitle from '../components/Subtitle'
 import Button from '../components/Button'
+import ContactForm from '../components/ContactForm'
 
 import theme from '../utils/theme'
 
@@ -20,6 +21,7 @@ const Header = styled.header`
   background-color: ${theme.colors.darkBg};
   transition: all .2s;
   min-height: 100vh;
+
   @media (min-width: 960px) {
     min-height: calc(100vh - 60px);
     margin: 30px;
@@ -178,6 +180,7 @@ const IndexPage = () => (
           In the vacant hours I study economics and play Tibia (yes, really).
         </Text>
       </AboutMe>
+      <ContactForm/>
     </Wrapper>
   </div>
 )
