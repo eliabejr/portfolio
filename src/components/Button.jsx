@@ -13,6 +13,8 @@ const ButtonWrapper = styled.button`
   font-family: ${theme.fonts.subtitle};
   font-weight: normal;
   outline: none;
+  overflow: hidden;
+  position: relative;
   padding: 15px 20px;
   touch-action: manipulation;
   text-align: center;
@@ -20,7 +22,6 @@ const ButtonWrapper = styled.button`
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  position: relative;
   z-index: 1;
 
   a {
@@ -28,6 +29,7 @@ const ButtonWrapper = styled.button`
     font-size: 18px;
     text-decoration: none;
   }
+  
   &:hover {
     background: transparent;
     border: 1px solid ${props => (props.raised ? props.theme : 'transparent')};

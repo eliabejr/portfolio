@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import Particles from 'react-particles-js'
 
 import Rocket from 'react-icons/lib/go/rocket'
+import Close from 'react-icons/lib/go/x'
 
 import Wrapper from '../components/Wrapper'
 import Title from '../components/Title'
 import Text from '../components/Text'
 import Subtitle from '../components/Subtitle'
-import Button from '../components/Button'
 import ContactForm from '../components/ContactForm'
 
 import theme from '../utils/theme'
@@ -21,11 +21,65 @@ const Header = styled.header`
   background-color: ${theme.colors.darkBg};
   transition: all .2s;
   min-height: 100vh;
+`
 
-  @media (min-width: 960px) {
-    min-height: calc(100vh - 60px);
-    margin: 30px;
+const HeaderContent = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+`
+
+const FormOverlay = styled.div`
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: center;
+  padding: 10vh;
+  position: absolute;
+  transform: scale(0);
+  transition: all ease-in-out .4s;
+  width: 90%;
+  z-index: 2;
+`
+
+const FormButton = styled.label`
+  background-color: transparent;
+  border: 1px solid ${theme.colors.primary};
+  color: ${theme.colors.primary};
+  cursor: pointer;
+  font-family: ${theme.fonts.subtitle};
+  font-weight: normal;
+  position: relative;
+  padding: 15px 20px;
+  touch-action: manipulation;
+  text-align: center;
+  transition: all 0.17s ease-in-out;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 1;
+
+  &:hover {
+    background: transparent;
+    border: 1px solid ${theme.colors.primary};
+    color: #fff;
   }
+
+  svg {
+    padding-right: 10px;
+    font-size: 1.8em;
+  }
+`
+
+const CloseWrapper = styled.label`
+  align-self: flex-end;
+  color: tomato;
+  cursor: pointer;
+  font-size: 48px;
 `
 
 const ParticlesWrapper = styled(Particles)`
@@ -51,10 +105,17 @@ const AboutMe = styled.section`
 const IndexPage = () => (
   <div>
     <Header>
-      <Wrapper alignItems="center">
-        <Title align="center" color="#fff" transform="uppercase">Eliabe <em>Junior</em></Title>
-        <Subtitle align="center" color="#fff" marginTop="10px" marginBottom="30px" weight="300">Hello! I'm Fullstack Designer from Recife, Brazil, who loves to turn ideas into reality with JavaScript.</Subtitle>
-        <Button raised={true} icon={<Rocket/>}>Let's talk!</Button>
+      <input id="contact-form-trigger" type="checkbox" hidden />
+      <FormOverlay id="form-overlay">
+        <CloseWrapper htmlFor="contact-form-trigger"><Close /></CloseWrapper>
+        <ContactForm/>
+      </FormOverlay>
+      <Wrapper className="header" alignItems="center">
+        <HeaderContent>
+          <Title align="center" color="#fff" transform="uppercase">Eliabe <em>Junior</em></Title>
+          <Subtitle align="center" color="#fff" marginTop="10px" marginBottom="30px" weight="300">Hello! I'm Fullstack Designer from Recife, Brazil, who loves to turn ideas into reality with JavaScript.</Subtitle>
+          <FormButton htmlFor="contact-form-trigger"><Rocket/>Let's talk!</FormButton>
+        </HeaderContent>
         <ParticlesWrapper
           params={
             {
@@ -175,12 +236,11 @@ const IndexPage = () => (
       <AboutMe>
         <Title size="3.4em">about me</Title>
         <Text>
-          I'm Bachelor in Information Management at the Federal University of Pernambuco and an enthusiast of Blockchain projects. My thesis was a analysis of bitcoin price in june/2017, you can find it <a href="https://github.com/eliabejr/bitcoin-price-analysis/" target="_blank">here</a>.
+          I'm Bachelor in Information Management at the Federal University of Pernambuco and an enthusiast of Blockchain projects. My thesis was a analysis of bitcoin price in june/2017, you can find it <a href="https://eliabejr.gitbook.io/bitcoin/" target="_blank">here</a>.
           <br/>
           In the vacant hours I study economics and play Tibia (yes, really).
         </Text>
       </AboutMe>
-      <ContactForm/>
     </Wrapper>
   </div>
 )

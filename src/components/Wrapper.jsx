@@ -8,5 +8,6 @@ export default styled.div`
   justify-content: ${props => props.justifyContent || 'flex-start'};
   margin: 0 auto;
   max-width: 1200px;
+  transition: all .2s;
   width: 85vw;
 `

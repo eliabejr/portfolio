@@ -11,7 +11,7 @@ const Form = styled.form`
 `
 
 const ContactForm = () => (
-  <Form autocomplete="false" name="contact" netlify>
+  <Form autocomplete="off" name="contact" data-netlify="true" method="POST">
     <FormField name="name" label="How can I call You?" placeholder="Tony Montana" type="text"/>
     <FormField name="email" label="Your best Email" placeholder="tony@montana.com" type="email"/>
     <Textarea name="email" label="Let's play someday? Tell me when!" placeholder="Friday, at 20pm. In tibia Relembra server."/>
