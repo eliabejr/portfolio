@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import Particles from 'react-particles-js'
 
@@ -103,7 +103,7 @@ const AboutMe = styled.section`
 `
 
 const IndexPage = () => (
-  <div>
+  <Fragment>
     <Header>
       <input id="contact-form-trigger" type="checkbox" hidden />
       <FormOverlay id="form-overlay">
@@ -242,7 +242,7 @@ const IndexPage = () => (
         </Text>
       </AboutMe>
     </Wrapper>
-  </div>
+  </Fragment>
 )
 
 export default IndexPage
